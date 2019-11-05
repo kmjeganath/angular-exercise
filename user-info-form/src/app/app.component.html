@@ -1,0 +1,86 @@
+<div class="container">
+  <form [formGroup]="userInfoForm">
+    <div class="form-group">
+      <p>Title Code</p>
+      <label>
+        <input type="radio" value="Mr" formControlName="title" [checked]=true>
+        <span>Mr.</span>
+      </label>
+      <label>
+        <input type="radio" value="Mrs" formControlName="title">
+        <span>Mrs.</span>
+      </label>
+      <label>
+        <input type="radio" value="Miss" formControlName="title">
+        <span>Miss.</span>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" formControlName="firstName" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.firstName.errors }" />
+      <div *ngIf="submitted && getUserInfoForm.firstName.errors" class="invalid-feedback">
+        <div *ngIf="getUserInfoForm.firstName.errors.required">First Name is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input type="number" formControlName="mobileNumber" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.mobileNumber.errors }" />
+      <div *ngIf="submitted && getUserInfoForm.mobileNumber.errors" class="invalid-feedback">
+        <div *ngIf="getUserInfoForm.mobileNumber.errors.required">Mobile Number is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Nationality</label>
+      <select formControlName="nationality" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.nationality.errors }">
+        <option value=""></option>
+        <option value="American">American</option>
+        <option value="Indian">Indian</option>
+      </select>
+      <div *ngIf="submitted && getUserInfoForm.nationality.errors" class="invalid-feedback">
+        <div *ngIf="getUserInfoForm.nationality.errors.required">Nationality is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Birth Date</label>
+      <input type="date" formControlName="birthdate" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.birthdate.errors }" />
+      <div *ngIf="submitted && getUserInfoForm.birthdate.errors" class="invalid-feedback">
+        <div *ngIf="getUserInfoForm.birthdate.errors.required">Birth Date is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" formControlName="address" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.address.errors }" />
+      <div *ngIf="submitted && getUserInfoForm.address.errors" class="invalid-feedback">
+        <div *ngIf="getUserInfoForm.address.errors.required">Address is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Address Stay Duration</label>
+      <input type="number" formControlName="addressDuration" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.addressDuration.errors }" />
+      <div *ngIf="submitted && getUserInfoForm.addressDuration.errors" class="invalid-feedback">
+        <div *ngIf="getUserInfoForm.addressDuration.errors.required">Address Stay Duration is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <p>Marital Status</p>
+      <label>
+        <input type="radio" name="maritalStatus" value="Single" formControlName="maritalStatus" [checked]=true>
+        <span>Single</span>
+      </label>
+      <label>
+        <input type="radio" name="maritalStatus" value="Married" formControlName="maritalStatus">
+        <span>Married</span>
+      </label>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary mr-1" (click)="onSubmit()">Next</button>
+    </div>
+  </form>
+</div>
+<router-outlet></router-outlet>
