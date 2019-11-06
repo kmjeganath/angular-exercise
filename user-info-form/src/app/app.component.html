@@ -1,19 +1,30 @@
 <div class="container">
   <form [formGroup]="userInfoForm">
-    <div class="form-group">
-      <p>Title Code</p>
-      <label>
-        <input type="radio" value="Mr" formControlName="title" [checked]=true>
-        <span>Mr.</span>
-      </label>
-      <label>
-        <input type="radio" value="Mrs" formControlName="title">
-        <span>Mrs.</span>
-      </label>
-      <label>
-        <input type="radio" value="Miss" formControlName="title">
-        <span>Miss.</span>
-      </label>
+    <div class="form-group title-code-wrapper">
+      <label>Title Code</label>
+      <div class="row">
+        <div class="title-code" (click)="onTitleCode('Mr')"
+        [ngClass]="titleCodeChecked === 'Mr' ? 'apply-background': ''">
+          <label>
+            <input type="radio" value="Mr" formControlName="title"  [checked]="titleCodeChecked === 'Mr'">
+            <span>Mr.</span>
+          </label>
+        </div>
+        <div class="title-code"(click)="onTitleCode('Mrs')"
+        [ngClass]="titleCodeChecked === 'Mrs' ? 'apply-background': ''">
+          <label>
+            <input type="radio" value="Mrs" formControlName="title" [checked]="titleCodeChecked === 'Mrs'">
+            <span>Mrs.</span>
+          </label>
+        </div>
+        <div class="title-code"(click)="onTitleCode('Miss')"
+        [ngClass]="titleCodeChecked === 'Miss' ? 'apply-background': ''">
+          <label>
+            <input type="radio" value="Miss" formControlName="title" [checked]="titleCodeChecked === 'Miss'">
+            <span>Miss.</span>
+          </label>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label>First Name</label>
@@ -26,7 +37,7 @@
     <div class="form-group">
       <label>Mobile Number</label>
       <input type="number" formControlName="mobileNumber" class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.mobileNumber.errors }" />
+        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.mobileNumber.errors }" min="0"/>
       <div *ngIf="submitted && getUserInfoForm.mobileNumber.errors" class="invalid-feedback">
         <div *ngIf="getUserInfoForm.mobileNumber.errors.required">Mobile Number is required</div>
       </div>
@@ -62,24 +73,34 @@
     <div class="form-group">
       <label>Address Stay Duration</label>
       <input type="number" formControlName="addressDuration" class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.addressDuration.errors }" />
+        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.addressDuration.errors }" min="0"/>
       <div *ngIf="submitted && getUserInfoForm.addressDuration.errors" class="invalid-feedback">
         <div *ngIf="getUserInfoForm.addressDuration.errors.required">Address Stay Duration is required</div>
       </div>
     </div>
     <div class="form-group">
-      <p>Marital Status</p>
-      <label>
-        <input type="radio" name="maritalStatus" value="Single" formControlName="maritalStatus" [checked]=true>
-        <span>Single</span>
-      </label>
-      <label>
-        <input type="radio" name="maritalStatus" value="Married" formControlName="maritalStatus">
-        <span>Married</span>
-      </label>
+      <label>Marital Status</label>
+      <div class="row">
+        <div class="title-code martial-status" (click)="onMaritalStatus('Single')"
+          [ngClass]="maritalStatusChecked === 'Single' ? 'apply-background': ''">
+          <label>
+            <input type="radio" name="maritalStatus" value="Single" formControlName="maritalStatus"
+              [checked]="maritalStatusChecked === 'Single'">
+            <span>Single</span>
+          </label>
+        </div>
+        <div class="title-code martial-status" (click)="onMaritalStatus('Married')"
+          [ngClass]="maritalStatusChecked === 'Married' ? 'apply-background': ''">
+          <label>
+            <input type="radio" name="maritalStatus" value="Married" formControlName="maritalStatus"
+              [checked]="maritalStatusChecked === 'Married'">
+            <span>Married</span>
+          </label>
+        </div>
+      </div>
     </div>
-    <div class="text-center">
-      <button class="btn btn-primary mr-1" (click)="onSubmit()">Next</button>
+    <div class="text-center pull-right">
+      <button class="btn btn-primary mr-1 next-btn" (click)="onSubmit()">Next</button>
     </div>
   </form>
 </div>
