@@ -1,19 +1,26 @@
 <div class="container">
   <form [formGroup]="userInfoForm">
-    <div class="form-group">
+    <div class="form-group title-code-wrapper">
       <p>Title Code</p>
-      <label>
-        <input type="radio" value="Mr" formControlName="title" [checked]=true>
-        <span>Mr.</span>
-      </label>
-      <label>
-        <input type="radio" value="Mrs" formControlName="title">
-        <span>Mrs.</span>
-      </label>
-      <label>
-        <input type="radio" value="Miss" formControlName="title">
-        <span>Miss.</span>
-      </label>
+      <div class="row">
+        <div class="title-code">
+          <label>
+            <input type="radio" value="Mr" formControlName="title" [checked]=true>
+            <span>Mr.</span>
+          </label></div>
+        <div class="title-code">
+          <label>
+            <input type="radio" value="Mrs" formControlName="title">
+            <span>Mrs.</span>
+          </label>
+        </div>
+        <div class="title-code">
+          <label>
+            <input type="radio" value="Miss" formControlName="title">
+            <span>Miss.</span>
+          </label>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label>First Name</label>
@@ -69,14 +76,20 @@
     </div>
     <div class="form-group">
       <p>Marital Status</p>
-      <label>
-        <input type="radio" name="maritalStatus" value="Single" formControlName="maritalStatus" [checked]=true>
-        <span>Single</span>
-      </label>
-      <label>
-        <input type="radio" name="maritalStatus" value="Married" formControlName="maritalStatus">
-        <span>Married</span>
-      </label>
+      <div class="row">
+        <div class="title-code martial-status">
+          <label>
+            <input type="radio" name="maritalStatus" value="Single" formControlName="maritalStatus" [checked]=true>
+            <span>Single</span>
+          </label>
+        </div>
+        <div class="title-code martial-status">
+          <label>
+            <input type="radio" name="maritalStatus" value="Married" formControlName="maritalStatus">
+            <span>Married</span>
+          </label>
+        </div>
+      </div>
     </div>
     <div class="text-center">
       <button class="btn btn-primary mr-1" (click)="onSubmit()">Next</button>
