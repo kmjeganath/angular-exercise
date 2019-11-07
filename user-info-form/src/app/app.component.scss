@@ -1,19 +1,48 @@
 .container {
   width: 90%;
   background: #f5f5dc;
+  margin-top: 15px;
+  border-radius: 3px;
+  padding-top: 10px;
 }
 
 .title-code {
   background: #ffffff;
   border: 1px solid #000000;
   border-radius: 3px;
-  width: 33%;
+  width: 32%;
   padding-left: 10px;
+
+  &:first-child {
+    margin-left: 2%;
+  }
+
+  &:last-child {
+    margin-right: 2%;
+  }
+
   span {
     margin-left: 5px;
   }
 }
 
+// .title-code-checked{
+//   background: #f3cb03;
+// }
+
 .martial-status {
-  width: 50%;
+  width: 48%;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.next-btn {
+  height: 25px;
+  border-radius: 3px;
+  background: #337ab7;
+  padding-top: 0;
+  padding-bottom: 0;
 }
