@@ -37,7 +37,7 @@
     <div class="form-group">
       <label>Mobile Number</label>
       <input type="number" formControlName="mobileNumber" class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.mobileNumber.errors }" />
+        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.mobileNumber.errors }" min="0"/>
       <div *ngIf="submitted && getUserInfoForm.mobileNumber.errors" class="invalid-feedback">
         <div *ngIf="getUserInfoForm.mobileNumber.errors.required">Mobile Number is required</div>
       </div>
@@ -73,7 +73,7 @@
     <div class="form-group">
       <label>Address Stay Duration</label>
       <input type="number" formControlName="addressDuration" class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.addressDuration.errors }" />
+        [ngClass]="{ 'is-invalid': submitted && getUserInfoForm.addressDuration.errors }" min="0"/>
       <div *ngIf="submitted && getUserInfoForm.addressDuration.errors" class="invalid-feedback">
         <div *ngIf="getUserInfoForm.addressDuration.errors.required">Address Stay Duration is required</div>
       </div>
