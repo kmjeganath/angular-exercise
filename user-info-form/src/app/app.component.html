@@ -3,21 +3,24 @@
     <div class="form-group title-code-wrapper">
       <label>Title Code</label>
       <div class="row">
-        <div class="title-code">
+        <div class="title-code" (click)="onTitleCode('Mr')"
+        [ngClass]="titleCodeChecked === 'Mr' ? 'apply-background': ''">
           <label>
-            <input type="radio" value="Mr" formControlName="title" [checked]=true>
+            <input type="radio" value="Mr" formControlName="title"  [checked]="titleCodeChecked === 'Mr'">
             <span>Mr.</span>
           </label>
         </div>
-        <div class="title-code">
+        <div class="title-code"(click)="onTitleCode('Mrs')"
+        [ngClass]="titleCodeChecked === 'Mrs' ? 'apply-background': ''">
           <label>
-            <input type="radio" value="Mrs" formControlName="title">
+            <input type="radio" value="Mrs" formControlName="title" [checked]="titleCodeChecked === 'Mrs'">
             <span>Mrs.</span>
           </label>
         </div>
-        <div class="title-code">
+        <div class="title-code"(click)="onTitleCode('Miss')"
+        [ngClass]="titleCodeChecked === 'Miss' ? 'apply-background': ''">
           <label>
-            <input type="radio" value="Miss" formControlName="title">
+            <input type="radio" value="Miss" formControlName="title" [checked]="titleCodeChecked === 'Miss'">
             <span>Miss.</span>
           </label>
         </div>

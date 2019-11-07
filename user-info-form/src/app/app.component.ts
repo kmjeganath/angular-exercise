@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   userInfoForm: FormGroup;
   submitted = false;
   maritalStatusChecked = 'Single';
-  // maritalStatus;
+  titleCodeChecked = 'Mr';
 
   constructor(
     private formBuilder: FormBuilder
@@ -36,6 +36,9 @@ export class AppComponent implements OnInit {
     if (this.userInfoForm.invalid) {
       return;
     }
+  }
+  onTitleCode(value: string) {
+    this.titleCodeChecked = value;
   }
 
   onMaritalStatus(value: string) {
