@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
   userInfoForm: FormGroup;
   submitted = false;
+  maritalStatusChecked = 'Single';
+  // maritalStatus;
 
   constructor(
     private formBuilder: FormBuilder
@@ -34,5 +36,9 @@ export class AppComponent implements OnInit {
     if (this.userInfoForm.invalid) {
       return;
     }
+  }
+
+  onMaritalStatus(value: string) {
+    this.maritalStatusChecked = value;
   }
 }

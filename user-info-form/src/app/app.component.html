@@ -78,15 +78,19 @@
     <div class="form-group">
       <label>Marital Status</label>
       <div class="row">
-        <div class="title-code martial-status">
+        <div class="title-code martial-status" (click)="onMaritalStatus('Single')"
+          [ngClass]="maritalStatusChecked === 'Single' ? 'apply-background': ''">
           <label>
-            <input type="radio" name="maritalStatus" value="Single" formControlName="maritalStatus" [checked]=true>
+            <input type="radio" name="maritalStatus" value="Single" formControlName="maritalStatus"
+              [checked]="maritalStatusChecked === 'Single'">
             <span>Single</span>
           </label>
         </div>
-        <div class="title-code martial-status">
+        <div class="title-code martial-status" (click)="onMaritalStatus('Married')"
+          [ngClass]="maritalStatusChecked === 'Married' ? 'apply-background': ''">
           <label>
-            <input type="radio" name="maritalStatus" value="Married" formControlName="maritalStatus">
+            <input type="radio" name="maritalStatus" value="Married" formControlName="maritalStatus"
+              [checked]="maritalStatusChecked === 'Married'">
             <span>Married</span>
           </label>
         </div>
