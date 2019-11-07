@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -18,14 +18,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.userInfoForm = this.formBuilder.group({
-      title: ['', Validators.required],
+      title: new FormControl('Mr'),
       firstName: ['', Validators.required],
       mobileNumber: ['', Validators.required],
       nationality: ['', Validators.required],
       birthdate: ['', Validators.required],
       address: ['', Validators.required],
       addressDuration: ['', Validators.required],
-      maritalStatus: ['', Validators.required],
+      maritalStatus: new FormControl('Single')
     });
   }
 
@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
     this.submitted = true;
     if (this.userInfoForm.invalid) {
       return;
+    } else {
+      alert(JSON.stringify(this.userInfoForm.value, null, 4));
     }
   }
   onTitleCode(value: string) {
